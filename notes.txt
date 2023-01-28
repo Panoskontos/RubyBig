@@ -1,0 +1,21 @@
+-rails g controller Pages home contact about
+-rails g migration createPosts
+write inside the migration and then 
+-rake db:migrate
+
+edit migration
+-rails g migration addIncomeToPosts income:string
+-rake db:migrate
+
+droping tables
+-rails c
+-ActiveRecord::Migration.drop_table(:table_name)
+
+or
+rake db:rollback
+
+to create your first pages
+
+
+partials are like components
+you can also pass props 
