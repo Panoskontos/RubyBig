@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   get 'pages/contact'
   get 'about',to: 'pages#about'
   get 'gal', to: 'pages#gal'
+  get '/auth/:provider/callback' => 'sessions#omniauth'
 
   get 'api/allusers', to: 'pages#allusers'
 
