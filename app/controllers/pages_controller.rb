@@ -1,7 +1,5 @@
 class PagesController < ApplicationController
   def home
-    title = "this is my homepage";
-    render html:title
   end
 
   def gal
