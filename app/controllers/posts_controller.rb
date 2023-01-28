@@ -1,13 +1,16 @@
 class PostsController < ApplicationController
   before_action :set_post, only: %i[ show edit update destroy ]
+  skip_before_action :verify_authenticity_token
 
   # GET /posts or /posts.json
   def index
     @posts = Post.all
+    render json: @posts
   end
 
   # GET /posts/1 or /posts/1.json
   def show
+    render json: @post
   end
 
   # GET /posts/new
@@ -23,7 +26,7 @@ class PostsController < ApplicationController
   # POST /posts or /posts.json
   def create
     @post = Post.new(post_params)
-
+    puts @post
     respond_to do |format|
       if @post.save
         format.html { redirect_to post_url(@post), notice: "Post was successfully created." }
