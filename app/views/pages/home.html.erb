@@ -8,7 +8,9 @@
 <% else %>
 <%= link_to "Sign Up!", new_user_registration_path %>
 <%= link_to "Login!", new_user_session_path %>
-<%= button_to "Log in with Google", '/auth/google_oauth2'  %>
+<br/><br/>
+
+<%= link_to "Sign in with Google", user_google_oauth2_omniauth_authorize_path, method: :post %>
 
 
 <% end %>
