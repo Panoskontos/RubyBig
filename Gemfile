@@ -28,6 +28,8 @@ gem 'devise-i18n'
 gem 'omniauth-google-oauth2'
 gem "omniauth-rails_csrf_protection", "~> 1.0"
 gem "dotenv-rails"
+gem 'rack-cors'
+gem 'devise-jwt'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
