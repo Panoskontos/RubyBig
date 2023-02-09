@@ -1,0 +1,35 @@
+<section class="vh-100" style="background-color: #ffffff;">
+    <div class="container py-5 h-100">
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+          <div class="card shadow-5-strong" style="border-radius: 1rem;">
+            <div class="card-body p-5 text-center">
+  
+              <h3 class="mb-5">Register</h3>
+
+              <form [formGroup]="form" (submit)="submit()" >
+
+
+                  <div class="form-outline mb-4">
+                      <label class="form-label" for="typeEmailX-2">Email</label>
+                      <input formControlName="email"  type="email"class="form-control form-control-lg" />
+            </div>
+            
+            <div class="form-outline mb-4">
+                <label class="form-label" for="typePasswordX-2">Password</label>
+                <input formControlName="password"   type="password"class="form-control form-control-lg" />
+            </div>
+            
+            
+            <button class="btn btn-primary btn-lg btn-block" type="submit">Sign Up</button>
+            
+        </form>
+            
+            
+            
+        </div>
+    </div>
+</div>
+</div>
+</div>
+</section>

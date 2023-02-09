@@ -1,4 +1,5 @@
 class CommentsController < ApplicationController
+  before_action :authorize
   before_action :set_comment, only: %i[ show edit update destroy ]
   skip_before_action :verify_authenticity_token
 

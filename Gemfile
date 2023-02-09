@@ -30,6 +30,8 @@ gem "omniauth-rails_csrf_protection", "~> 1.0"
 gem "dotenv-rails"
 gem 'rack-cors'
 gem 'devise-jwt'
+gem 'jwt'
+
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
