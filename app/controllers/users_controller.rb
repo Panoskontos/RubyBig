@@ -4,6 +4,7 @@ class UsersController < ApplicationController
     def create
         @user = User.create(user_params)
         puts @user
+        
         if @user.valid?
             token = encode_token({user_id: @user.id})
             render json: {user: @user, token: token}, status: :ok
@@ -17,7 +18,7 @@ class UsersController < ApplicationController
             decode_token
             if @user && @user.valid_password?(user_params[:password])
                 token = encode_token({user_id: @user.id})
-                render json: {token: token}, status: :ok
+                render json: {user: @user,token: token}, status: :ok
             else
                 render json: { error: 'User does not exist'}, status: :unprocessable_entity
             end

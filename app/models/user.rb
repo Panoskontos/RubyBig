@@ -2,10 +2,7 @@ class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable, 
-         :omniauthable,
-         :jwt_authenticatable,
-         jwt_revocation_strategy: JwtDenylist
+         :recoverable, :rememberable, :validatable, :omniauthable, omniauth_providers: [:google_oauth2]
 
   enum role: [:user, :moderator, :admin]
   after_initialize :set_default_role, :if => :new_record?
@@ -16,9 +13,8 @@ class User < ApplicationRecord
 
   def self.from_omniauth(access_token)
     data = access_token.info
-    account = User.where(email: data['email']).first
-    account ||= User.create(name: data['name'], email: data['email'], password: Devise.friendly_token[0, 20])
-    account
+    user = User.where(email: data['email']).first
+    user
   end
 
 end
