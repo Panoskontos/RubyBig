@@ -16,6 +16,8 @@ import {
   GoogleLoginProvider,
   FacebookLoginProvider
 } from '@abacritt/angularx-social-login';
+import { IndexComponent } from './theatre/index/index.component';
+import { ViewComponent } from './theatre/view/view.component';
 
 
 @NgModule({
@@ -26,6 +28,8 @@ import {
     HomeComponent,
     NavComponent,
     LogoutComponent,
+    IndexComponent,
+    ViewComponent,
   ],
   imports: [
     BrowserModule,

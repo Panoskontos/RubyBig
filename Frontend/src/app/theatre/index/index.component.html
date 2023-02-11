@@ -1,0 +1,25 @@
+<div class="container">
+    <h1>My Theatres</h1>
+   
+
+     
+    <table class="table table-bordered">
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Location</th>
+        <th width="220px">Action</th>
+      </tr>
+      <tr *ngFor="let theatre of theatres">
+        <td>{{ theatre.id }}</td>
+        <td>{{ theatre.name }}</td>    
+        <td>{{ theatre.location }}</td>
+
+        <td>
+          <a href="#" [routerLink]="['/theatre/', theatre.id, 'view']" class="btn btn-info">View</a>
+      
+
+        </td>
+      </tr>
+    </table>
+ </div>
