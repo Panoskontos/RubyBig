@@ -22,7 +22,7 @@ if (cookieValue) {
     console.log(cookieValue[2]);
     myrubycookie = "Bearer "+cookieValue[2]
 }
-    this.http.get('http://127.0.0.1:3000/posts', {
+    this.http.get('http://127.0.0.1:3000/theatres', {
     headers:new HttpHeaders().set('Authorization', `${myrubycookie}`)}).subscribe(
       res=>{
         console.log(res)

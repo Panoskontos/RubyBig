@@ -25,6 +25,17 @@ class UsersController < ApplicationController
 
     end
 
+    def change_role
+        @user = User.find_by(email: user_params_change_role[:email])
+        @user.update(role:  user_params_change_role[:role])
+        @user.save()
+        render json: {message: "User with this mail has changed role new role is", new_role: @user.role}, status: :ok
+    end
+
+    def user_params_change_role
+        params.permit(:email, :role)
+    end
+
     def user_params
         params.require(:user).permit(:email, :password)
     end

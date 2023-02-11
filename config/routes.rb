@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :theatres
 #   devise_for :users, controllers: { 
 #   omniauth_callbacks: 'users/omniauth_callbacks', 
 # }
@@ -7,6 +8,7 @@ Rails.application.routes.draw do
 
   resource :users, only: [:create]
   post "/login", to: "users#login"
+  post "/change_role", to: "users#change_role"
 
   resources :comments
   resources :products
