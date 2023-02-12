@@ -1,0 +1,28 @@
+<p>event-index works!</p>
+
+<div class="container">
+    <h1>Events</h1>
+    <br>
+    <br>
+     
+    <table class="table table-bordered">
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Date</th>
+        <th width="220px">Action</th>
+      </tr>
+      <tr *ngFor="let event of events">
+        <td>{{ event.id }}</td>
+        <td>{{ event.name }}</td>    
+        <td>{{ event.date | date:'medium' }}</td>    
+
+
+        <td>
+          <a href="#" [routerLink]="['/event/', event.id, 'view']" class="btn btn-info">Buy Ticket</a>
+      
+
+        </td>
+      </tr>
+    </table>
+ </div>

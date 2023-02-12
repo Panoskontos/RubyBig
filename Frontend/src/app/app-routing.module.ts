@@ -5,6 +5,7 @@ import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { ViewComponent } from './theatre/view/view.component';
+import { EventViewComponent } from './event/event-view/event-view.component';
 
 const routes: Routes = [
   {path:"",component:HomeComponent},
@@ -12,6 +13,8 @@ const routes: Routes = [
   {path:"register",component:RegisterComponent},
   {path:"logout", component:LogoutComponent},
   { path: 'theatre/:theatreId/view', component: ViewComponent },
+  { path: 'event/:eventId/view', component: EventViewComponent },
+
 
 
 

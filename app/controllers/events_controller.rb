@@ -80,6 +80,6 @@ class EventsController < ApplicationController
     end
 
     def event_params_only_theatre
-      params.require(:event).permit(:theatre_id)
+      params.permit(:theatre_id)
     end
 end

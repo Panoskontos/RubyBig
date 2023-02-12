@@ -18,6 +18,8 @@ import {
 } from '@abacritt/angularx-social-login';
 import { IndexComponent } from './theatre/index/index.component';
 import { ViewComponent } from './theatre/view/view.component';
+import { EventIndexComponent } from './event/event-index/event-index.component';
+import { EventViewComponent } from './event/event-view/event-view.component';
 
 
 @NgModule({
@@ -30,6 +32,8 @@ import { ViewComponent } from './theatre/view/view.component';
     LogoutComponent,
     IndexComponent,
     ViewComponent,
+    EventIndexComponent,
+    EventViewComponent,
   ],
   imports: [
     BrowserModule,
