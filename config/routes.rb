@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :events
   resources :theatres
 #   devise_for :users, controllers: { 
 #   omniauth_callbacks: 'users/omniauth_callbacks', 
@@ -9,6 +10,7 @@ Rails.application.routes.draw do
   resource :users, only: [:create]
   post "/login", to: "users#login"
   post "/change_role", to: "users#change_role"
+  post "/get_events_for_theatre", to: "events#get_events_for_theatre"
 
   resources :comments
   resources :products

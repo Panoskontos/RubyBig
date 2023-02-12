@@ -11,12 +11,14 @@
         <th>ID</th>
         <th>Name</th>
         <th>Location</th>
+        <th>Seats</th>
         <th width="220px">Action</th>
       </tr>
       <tr *ngFor="let theatre of theatres">
         <td>{{ theatre.id }}</td>
         <td>{{ theatre.name }}</td>    
         <td>{{ theatre.location }}</td>
+        <td>{{ theatre.seats }}</td>
 
         <td>
           <a href="#" [routerLink]="['/theatre/', theatre.id, 'view']" class="btn btn-info">View Events</a>

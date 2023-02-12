@@ -19,3 +19,28 @@ to create your first pages
 
 partials are like components
 you can also pass props 
+
+
+
+changing tables
+rails generate migration add_fieldname_to_tablename fieldname:string
+and
+rake db:migrate
+
+
+
+Rails scaffolding types
+These types are valid since Rails: 
+string
+text (long text, up to 64k, often used for text areas)
+datetime
+date
+integer
+binary
+boolean
+float
+decimal (for financial data)
+time
+timestamp
+references
+belongs_to
