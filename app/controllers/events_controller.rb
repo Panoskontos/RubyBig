@@ -1,13 +1,13 @@
 class EventsController < ApplicationController
   # before_action :authorize
-  before_action :set_theatre, only: %i[ show edit update destroy ]
+  before_action :set_event, only: %i[ show edit update destroy ]
   skip_before_action :verify_authenticity_token
 
 
   # GET /events or /events.json
   def index
     @events = Event.all
-    render json: @events
+    # render json: @events
   end
 
   # GET /events/1 or /events/1.json
@@ -17,7 +17,6 @@ class EventsController < ApplicationController
   def get_events_for_theatre
     @events = Event.where(theatre_id: event_params_only_theatre[:theatre_id])
     render json: @events
-
   end
 
   # GET /events/new
@@ -32,6 +31,10 @@ class EventsController < ApplicationController
   # POST /events or /events.json
   def create
     @event = Event.new(event_params)
+
+    @theatres = Theatre.find(id=@event.theatre_id)
+    @event.seatsAvailable = @theatres.seats
+    @event.seatsTotal = @theatres.seats
 
     respond_to do |format|
       if @event.save
@@ -73,10 +76,15 @@ class EventsController < ApplicationController
       @event = Event.find(params[:id])
     end
 
+    # def set_theatre
+    #   @theatre = Theatre.find(id = params[:theatre_id])
+    # end
+    # save 1 seat method
+
 
     # Only allow a list of trusted parameters through.
     def event_params
-      params.require(:event).permit(:name, :theatre_id, :date)
+      params.require(:event).permit(:name, :theatre_id, :date, :price)
     end
 
     def event_params_only_theatre

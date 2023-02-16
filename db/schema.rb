@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_02_12_141520) do
+ActiveRecord::Schema.define(version: 2023_02_16_155311) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -29,6 +29,9 @@ ActiveRecord::Schema.define(version: 2023_02_12_141520) do
     t.datetime "date"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "price"
+    t.integer "seatsAvailable"
+    t.integer "seatsTotal"
     t.index ["theatre_id"], name: "index_events_on_theatre_id"
   end
 
@@ -61,6 +64,19 @@ ActiveRecord::Schema.define(version: 2023_02_12_141520) do
     t.integer "seats"
   end
 
+  create_table "tickets", force: :cascade do |t|
+    t.string "code"
+    t.bigint "event_id", null: false
+    t.string "fname"
+    t.string "lname"
+    t.string "email"
+    t.integer "seat"
+    t.string "status"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["event_id"], name: "index_tickets_on_event_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -76,4 +92,5 @@ ActiveRecord::Schema.define(version: 2023_02_12_141520) do
 
   add_foreign_key "comments", "products"
   add_foreign_key "events", "theatres"
+  add_foreign_key "tickets", "events"
 end
