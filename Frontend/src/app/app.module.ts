@@ -20,6 +20,9 @@ import { IndexComponent } from './theatre/index/index.component';
 import { ViewComponent } from './theatre/view/view.component';
 import { EventIndexComponent } from './event/event-index/event-index.component';
 import { EventViewComponent } from './event/event-view/event-view.component';
+import { TicketIndexComponent } from './ticket/ticket-index/ticket-index.component';
+import { TicketCreateComponent } from './ticket/ticket-create/ticket-create.component';
+import { TicketViewComponent } from './ticket/ticket-view/ticket-view.component';
 
 
 @NgModule({
@@ -34,6 +37,9 @@ import { EventViewComponent } from './event/event-view/event-view.component';
     ViewComponent,
     EventIndexComponent,
     EventViewComponent,
+    TicketIndexComponent,
+    TicketCreateComponent,
+    TicketViewComponent,
   ],
   imports: [
     BrowserModule,

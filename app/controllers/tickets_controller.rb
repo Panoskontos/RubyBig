@@ -17,6 +17,11 @@ class TicketsController < ApplicationController
     @ticket = Ticket.new
   end
 
+  def get_tickets_for_event
+    @tickets = Ticket.where(event_id: ticket_params_only_event[:event_id])
+    render json: @tickets
+  end
+
   # GET /tickets/1/edit
   def edit
   end
@@ -86,4 +91,11 @@ class TicketsController < ApplicationController
     def ticket_params
       params.require(:ticket).permit(:event_id, :fname, :lname, :email)
     end
+
+
+
+    def ticket_params_only_event
+      params.permit(:event_id)
+    end
+
 end

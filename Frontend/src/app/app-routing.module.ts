@@ -1,3 +1,4 @@
+import { TicketIndexComponent } from './ticket/ticket-index/ticket-index.component';
 import { LogoutComponent } from './logout/logout.component';
 import { NgModule, Component } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
@@ -14,6 +15,7 @@ const routes: Routes = [
   {path:"logout", component:LogoutComponent},
   { path: 'theatre/:theatreId/view', component: ViewComponent },
   { path: 'event/:eventId/view', component: EventViewComponent },
+
 
 
 

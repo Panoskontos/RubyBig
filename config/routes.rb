@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   post "/login", to: "users#login"
   post "/change_role", to: "users#change_role"
   post "/get_events_for_theatre", to: "events#get_events_for_theatre"
-
+  post "/get_tickets_for_event", to: "tickets#get_tickets_for_event"
   resources :comments
   resources :products
   resources :posts
