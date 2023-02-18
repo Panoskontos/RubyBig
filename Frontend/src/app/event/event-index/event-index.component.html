@@ -7,7 +7,8 @@
      
     <table class="table table-bordered">
       <tr>
-        <th>ID</th>
+        <th width="200px">Logo</th>
+        <!-- <th>ID</th> -->
         <th>Name</th>
         <th>Date</th>
         <th>Price</th>
@@ -15,7 +16,8 @@
         <th width="220px">Action</th>
       </tr>
       <tr *ngFor="let event of events">
-        <td>{{ event.id }}</td>
+        <td><img src={{event.image}}  height="200px"  /></td>    
+        <!-- <td>{{ event.id }}</td> -->
         <td>{{ event.name }}</td>    
         <td>{{ event.date | date:'medium' }}</td>    
         <td>{{ event.price }} €</td>    
@@ -32,5 +34,7 @@
 
     <br/>
     <a href="#" routerLink="" class="btn btn-primary">Back</a>
+
+    <button  href="#" [routerLink]="['/newEvent/', id]"  type="button" class=" mx-2 btn btn-primary">Add new Event</button>
 
  </div>

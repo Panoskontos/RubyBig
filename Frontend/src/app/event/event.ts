@@ -5,5 +5,6 @@ export interface Event {
     price:number;
     seatsAvailable: number;
     seatsTotal: number;
+    image:string;
     date: Date;
 }

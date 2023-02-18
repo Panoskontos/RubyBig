@@ -33,6 +33,21 @@ export class EventService {
     )
   }
 
+  create(data:any): Observable<any> {
+    var cookieValue = document.cookie.match(new RegExp('(^| )myrubycookie=([^;]+)'));
+    let myrubycookie = ""
+    if (cookieValue) {
+        console.log(cookieValue[2]);
+        myrubycookie = "Bearer "+cookieValue[2]
+    }
+    return this.httpClient.post(this.apiURL + 'events',data, {
+      headers:new HttpHeaders().set('Authorization', `${myrubycookie}`)})
+    .pipe(
+      catchError(this.errorHandler)
+    )
+  } 
+
+
   errorHandler(error: { error: { message: string; }; status: any; message: any; }) {
     let errorMessage = '';
     if(error.error instanceof ErrorEvent) {

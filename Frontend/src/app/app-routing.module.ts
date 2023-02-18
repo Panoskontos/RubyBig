@@ -1,3 +1,4 @@
+import { EventCreateComponent } from './event/event-create/event-create.component';
 import { TicketViewComponent } from './ticket/ticket-view/ticket-view.component';
 import { TicketIndexComponent } from './ticket/ticket-index/ticket-index.component';
 import { LogoutComponent } from './logout/logout.component';
@@ -17,6 +18,7 @@ const routes: Routes = [
   { path: 'theatre/:theatreId/view', component: ViewComponent },
   { path: 'event/:eventId/view', component: EventViewComponent },
   { path: 'ticket/:ticketId/view', component: TicketViewComponent },
+  { path: 'newEvent/:theatreId', component: EventCreateComponent },
 
 
 

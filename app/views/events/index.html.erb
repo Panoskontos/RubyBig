@@ -10,6 +10,8 @@
       <th>Date</th>
       <th>Total</th>
       <th>Available</th>
+      <th>Image</th>
+      <th>Price</th>
 
       <th colspan="3"></th>
     </tr>
@@ -23,6 +25,9 @@
         <td><%= event.date %></td>
         <td><%= event.seatsTotal %></td>
         <td><%= event.seatsAvailable %></td>
+        <td><%= event.image %></td>
+        <td><%= event.price %></td>
+
 
         <td><%= link_to 'Show', event %></td>
         <td><%= link_to 'Edit', edit_event_path(event) %></td>
