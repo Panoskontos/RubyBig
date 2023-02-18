@@ -1,8 +1,7 @@
 <div class="container">
     <h1>Buy Ticket</h1>
    
-    <a href="#" routerLink="" class="btn btn-primary">Back</a>
-     
+
     <br/>
 
     <form [formGroup]="form" (ngSubmit)="submit()">
@@ -43,5 +42,9 @@
     
         <br/>
         <button class="btn btn-primary" type="submit" [disabled]="!form.valid">Book Ticket</button>
+     
     </form>
+    <br/>
+    <a href="#" routerLink="" class="btn btn-primary">Back</a>
+
 </div>

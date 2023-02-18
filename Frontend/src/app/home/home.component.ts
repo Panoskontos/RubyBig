@@ -22,6 +22,15 @@ export class HomeComponent implements OnInit{
   ngOnInit(): void {
     var cookieValue = document.cookie.match(new RegExp('(^| )myrubycookie=([^;]+)'));
     let myrubycookie = ""
+
+    // for role
+    var cookieValueR = document.cookie.match(new RegExp('(^| )myrubyrole=([^;]+)'));
+    var role
+    if(cookieValueR){
+      console.log(cookieValueR[2]);
+      role = cookieValueR[2]
+    }
+
 if (cookieValue) {
     console.log(cookieValue[2]);
     myrubycookie = "Bearer "+cookieValue[2]

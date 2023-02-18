@@ -1,5 +1,5 @@
 class TicketsController < ApplicationController
-  # before_action :authorize
+  before_action :authorize
   before_action :set_ticket, only: %i[ show edit update destroy ]
   skip_before_action :verify_authenticity_token
 
