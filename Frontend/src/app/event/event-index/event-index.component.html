@@ -10,12 +10,16 @@
         <th>ID</th>
         <th>Name</th>
         <th>Date</th>
+        <th>Price</th>
+        <th>Availability</th>
         <th width="220px">Action</th>
       </tr>
       <tr *ngFor="let event of events">
         <td>{{ event.id }}</td>
         <td>{{ event.name }}</td>    
         <td>{{ event.date | date:'medium' }}</td>    
+        <td>{{ event.price }} €</td>    
+        <td>{{ (event.seatsAvailable /  event.seatsTotal)*100 | number: '2.0-2' }}% </td>    
 
 
         <td>

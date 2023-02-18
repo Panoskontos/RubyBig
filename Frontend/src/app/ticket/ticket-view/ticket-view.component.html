@@ -1,1 +1,27 @@
-<p>ticket-view works!</p>
+<div class="container">
+    <h3>You have successfully booked your ticket!</h3>
+    
+    <div>
+        <strong>Seat:</strong>
+        <p>{{ post.seat }}</p>
+    </div>
+    
+    <div>
+        <strong>Code:</strong>
+        <p>{{ post.code }}</p>
+    </div>
+    
+    <div>
+        <strong>Name:</strong>
+        <p>{{ post.fname }} {{post.lname}}</p>
+    </div>
+
+    <div>
+        <strong>Status:</strong>
+        <p>{{ post.status }}</p>
+    </div>
+    
+    <a href="#" routerLink="" class="btn btn-primary">Back</a>
+
+</div>
+
