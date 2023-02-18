@@ -1,1 +1,47 @@
-<p>ticket-create works!</p>
+<div class="container">
+    <h1>Buy Ticket</h1>
+   
+    <a href="#" routerLink="/theatre/1/view" class="btn btn-primary">Back</a>
+     
+    <br/>
+
+    <form [formGroup]="form" (ngSubmit)="submit()">
+   
+        <div class="form-group">
+            <label for="fname">First Name:</label>
+            <input
+                formControlName="fname"
+                id="fname"
+                type="text"
+                class="form-control">
+            <div *ngIf="f['fname'].touched && f['fname'].invalid" class="alert alert-danger">
+                <div *ngIf="f['fname'].errors && f['fname'].errors['required']">First Name is required.</div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="lname">Last Name:</label>
+            <input
+                formControlName="lname"
+                id="lname"
+                type="text"
+                class="form-control">
+            <div *ngIf="f['lname'].touched && f['lname'].invalid" class="alert alert-danger">
+                <div *ngIf="f['lname'].errors && f['lname'].errors['required']">Last Name is required.</div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="email">Email:</label>
+            <input
+                formControlName="email"
+                id="email"
+                type="text"
+                class="form-control">
+            <div *ngIf="f['email'].touched && f['email'].invalid" class="alert alert-danger">
+                <div *ngIf="f['email'].errors && f['email'].errors['required']">Email is required.</div>
+            </div>
+        </div>
+    
+        <br/>
+        <button class="btn btn-primary" type="submit" [disabled]="!form.valid">Book Ticket</button>
+    </form>
+</div>

@@ -1,1 +1,34 @@
-<p>ticket-index works!</p>
+
+<br>
+<br>
+<div class="container">
+    <h1>Tickets</h1>
+    <br>
+    <br>
+     
+    <table class="table table-bordered">
+      <tr>
+        <th>ID</th>
+        <th>Code</th>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Seat</th>
+
+      </tr>
+      <tr *ngFor="let ticket of tickets">
+        <td>{{ ticket.id }}</td>
+        <td>{{ ticket.code }}</td>    
+        <td>{{ ticket.fname }}</td>    
+        <td>{{ ticket.lname }}</td>    
+        <td>{{ ticket.seat }}</td>    
+
+
+        <td>
+     
+      
+
+        </td>
+      </tr>
+    </table>
+ </div>
+

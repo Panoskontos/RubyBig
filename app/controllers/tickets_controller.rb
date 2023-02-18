@@ -1,4 +1,5 @@
 class TicketsController < ApplicationController
+  # before_action :authorize
   before_action :set_ticket, only: %i[ show edit update destroy ]
   skip_before_action :verify_authenticity_token
 
@@ -29,9 +30,7 @@ class TicketsController < ApplicationController
   # POST /tickets or /tickets.json
   def create
     @ticket = Ticket.new(ticket_params)
-    @event = Event.find(id=@ticket.event_id)
-    puts "pop smoke"
-    
+    @event = Event.find(id=@ticket.event_id)    
     puts @event
     @event.seatsAvailable =  @event.seatsAvailable - 1
     @event.save()
@@ -47,14 +46,12 @@ class TicketsController < ApplicationController
 
     @ticket.code = rand(10000...100000)
     @ticket.status = "booked"
-    respond_to do |format|
-      if @ticket.save
-        format.html { redirect_to ticket_url(@ticket), notice: "Ticket was successfully created." }
-        format.json { render :show, status: :created, location: @ticket }
-      else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @ticket.errors, status: :unprocessable_entity }
-      end
+    if @ticket.save
+        # format.json { render :show, status: :created, location: @ticket }
+        render json: { ticket: @ticket } 
+        # format.html { redirect_to ticket_url(@ticket), notice: "Ticket was successfully created." }      
+    else
+        render json: @ticket.errors, status: :unprocessable_entity 
     end
   end
 
