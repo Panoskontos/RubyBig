@@ -49,6 +49,7 @@ class TicketsController < ApplicationController
     @ticket.code = rand(10000...100000)
     @ticket.status = "booked"
     if @ticket.save
+      TicketMailer.with(ticket: @ticket, event: @event).new_ticket.deliver_now
         # format.json { render :show, status: :created, location: @ticket }
         render json: { ticket: @ticket } 
         # format.html { redirect_to ticket_url(@ticket), notice: "Ticket was successfully created." }      

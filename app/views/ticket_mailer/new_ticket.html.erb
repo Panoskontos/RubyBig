@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h3>Thank you <%= @ticket.fname %>  <%= @ticket.lname %> </h3>
+    <p>
+    Your have successfully booked a ticket with code
+    <strong>  <%= @ticket.code %> </strong>
+   <br>
+    </p>
+    <p>
+    For the event of  <strong> <%= @event.name %> </strong>  on the <%= @event.date %>
+    <br>
+    </p>
+    <p>
+    Your seat is  <strong> <%= @ticket.seat %> </strong>  <br>
+    </p>
+    <p>
+    Price for the event will be <strong> <%= @event.price %> € </strong>  <br>
+    </p>
+
+    <p>Thanks for joining and have a great day!</p>
+  </body>
+</html>
