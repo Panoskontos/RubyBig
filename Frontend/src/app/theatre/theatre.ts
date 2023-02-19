@@ -3,5 +3,5 @@ export interface Theatre {
     location: string;
     name: string;
     seats: number;
-
+    image: string;
 }

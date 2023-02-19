@@ -7,6 +7,7 @@
     <tr>
       <th>Name</th>
       <th>Location</th>
+      <th>Image</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -16,6 +17,7 @@
       <tr>
         <td><%= theatre.name %></td>
         <td><%= theatre.location %></td>
+        <td><%= theatre.image %></td>
         <td><%= link_to 'Show', theatre %></td>
         <td><%= link_to 'Edit', edit_theatre_path(theatre) %></td>
         <td><%= link_to 'Destroy', theatre, method: :delete, data: { confirm: 'Are you sure?' } %></td>

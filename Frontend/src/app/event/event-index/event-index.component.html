@@ -63,7 +63,8 @@
         <td>{{ event.name }}</td>    
         <td>{{ event.date | date:'medium' }}</td>    
         <td>{{ event.price }} €</td>    
-        <td>{{ (event.seatsAvailable /  event.seatsTotal)*100 | number: '2.0-2' }}% </td>    
+        <td *ngIf="role === 'admin'"  >{{ (event.seatsAvailable /  event.seatsTotal)*100 | number: '2.0-2' }}% </td>   
+        <td *ngIf="role === 'user'" style="color:green" >Tickets Available</td>     
 
 
         <td>

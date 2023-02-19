@@ -8,14 +8,17 @@
      
     <table class="table table-bordered">
       <tr>
-        <th>ID</th>
+        <th>Logo</th>
         <th>Name</th>
         <th>Location</th>
         <th>Seats</th>
         <th width="220px">Action</th>
       </tr>
       <tr *ngFor="let theatre of theatres">
-        <td>{{ theatre.id }}</td>
+        <td>     
+          <div>
+          <img src={{theatre.image}} class="img-fluid img-thumbnail rounded" />
+        </div> </td>
         <td>{{ theatre.name }}</td>    
         <td>{{ theatre.location }}</td>
         <td>{{ theatre.seats }}</td>

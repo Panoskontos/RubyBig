@@ -34,7 +34,7 @@ export class RegisterComponent implements OnInit{
     });
     const data = { user: { email: this.form.getRawValue().email, password: this.form.getRawValue().password } };
     this.http.post('http://localhost:3000/users', data, { headers }).subscribe(res => console.log(res));
-    // this.router.navigate(['/login'])
+    this.router.navigate(['/login'])
   }
 
 }
