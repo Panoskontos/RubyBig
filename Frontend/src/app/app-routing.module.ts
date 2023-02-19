@@ -9,6 +9,7 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { ViewComponent } from './theatre/view/view.component';
 import { EventViewComponent } from './event/event-view/event-view.component';
+import { CreateTheatreComponent } from './theatre/create-theatre/create-theatre.component';
 
 const routes: Routes = [
   {path:"",component:HomeComponent},
@@ -20,12 +21,7 @@ const routes: Routes = [
   {path: 'tickets/:eventId', component:TicketIndexComponent},
   { path: 'ticket/:ticketId/view', component: TicketViewComponent },
   { path: 'newEvent/:theatreId', component: EventCreateComponent },
-
-
-
-
-
-
+  { path: 'new_theatre', component: CreateTheatreComponent },
 ];
 
 @NgModule({

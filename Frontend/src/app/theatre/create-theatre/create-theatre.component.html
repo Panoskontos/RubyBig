@@ -1,0 +1,66 @@
+<br/>
+<br/>
+
+<div class="container">
+    <h1>Create Theatre</h1>
+   
+
+    <br/>
+
+    <form [formGroup]="form" (ngSubmit)="submit()">
+   
+        <div class="form-group">
+            <label for="name">Name:</label>
+            <input
+                formControlName="name"
+                id="name"
+                type="text"
+                class="form-control">
+            <div *ngIf="f['name'].touched && f['name'].invalid" class="alert alert-danger">
+                <div *ngIf="f['name'].errors && f['name'].errors['required']">Name is required.</div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="location">location:</label>
+            <input
+                formControlName="location"
+                id="location"
+                type="text"
+                class="form-control">
+            <div *ngIf="f['location'].touched && f['location'].invalid" class="alert alert-danger">
+                <div *ngIf="f['location'].errors && f['location'].errors['required']">location is required.</div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="seats">Seat Capacity:</label>
+            <input
+                formControlName="seats"
+                id="seats"
+                type="number"
+                class="form-control">
+            <div *ngIf="f['seats'].touched && f['seats'].invalid" class="alert alert-danger">
+                <div *ngIf="f['seats'].errors && f['seats'].errors['required']">seat is required.</div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="image">Image url:</label>
+            <input
+                formControlName="image"
+                id="image"
+                type="text"
+                class="form-control">
+            <div *ngIf="f['image'].touched && f['image'].invalid" class="alert alert-danger">
+                <div *ngIf="f['image'].errors && f['image'].errors['required']">Image url is required.</div>
+            </div>
+        </div>
+    
+        <br/>
+        <button class="btn btn-primary" type="submit" [disabled]="!form.valid">Add Theatre</button>
+     
+    </form>
+    <br/>
+    <a href="#" routerLink="" class="btn btn-primary">Back</a>
+
+</div>
+

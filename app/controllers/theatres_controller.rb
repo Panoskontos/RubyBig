@@ -27,15 +27,10 @@ class TheatresController < ApplicationController
   # POST /theatres or /theatres.json
   def create
     @theatre = Theatre.new(theatre_params)
-
-    respond_to do |format|
       if @theatre.save
-        format.html { redirect_to theatre_url(@theatre), notice: "Theatre was successfully created." }
-        format.json { render :show, status: :created, location: @theatre }
+        render json: { theatre: @theatre } 
       else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @theatre.errors, status: :unprocessable_entity }
-      end
+        render json: @theatre.errors, status: :unprocessable_entity 
     end
   end
 

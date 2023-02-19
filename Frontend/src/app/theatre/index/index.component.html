@@ -31,4 +31,8 @@
       </tr>
     </table>
 
+    <button class=" m-4 btn btn-primary"  *ngIf="role === 'admin'" [routerLink]="['/new_theatre']" >
+      Add new Theatre
+    </button>
+
   </div>
