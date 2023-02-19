@@ -11,6 +11,7 @@ import { Ticket } from '../ticket';
 export class TicketIndexComponent {
   tickets: Ticket[] = [];
   id!: number;
+  role!:string;
 
   constructor(
     public ticketService: TicketService,
@@ -18,6 +19,12 @@ export class TicketIndexComponent {
 
     ){}
   ngOnInit(): void {
+       // for role
+       var cookieValueR = document.cookie.match(new RegExp('(^| )myrubyrole=([^;]+)'));
+       if(cookieValueR){
+         console.log(cookieValueR[2]);
+         this.role = cookieValueR[2];
+       }
     this.id = this.route.snapshot.params['eventId'];
     console.log(this.id)
     const post_data = {

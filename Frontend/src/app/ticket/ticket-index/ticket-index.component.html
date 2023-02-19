@@ -1,7 +1,7 @@
 
 <br>
 <br>
-<div class="container">
+<div *ngIf="tickets.length && role==='admin'"  class="container">
     <h1>Tickets</h1>
     <br>
     <br>
@@ -30,5 +30,7 @@
         </td>
       </tr>
     </table>
+    <a href="#" routerLink="" class="btn btn-primary">Back</a>
+
  </div>
 

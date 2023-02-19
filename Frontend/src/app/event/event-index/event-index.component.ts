@@ -10,7 +10,13 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class EventIndexComponent {
   events: Event[] = [];
+  past_events: Event[] = [];
+  upcoming_events: Event[] = [];
   id!: number;
+  today!: any;
+  role!: string;
+  email!: string
+
 
   constructor(
     public eventService: EventService,
@@ -18,6 +24,21 @@ export class EventIndexComponent {
 
     ){}
   ngOnInit(): void {
+    // for role
+        var cookieValueR = document.cookie.match(new RegExp('(^| )myrubyrole=([^;]+)'));
+        if(cookieValueR){
+          console.log(cookieValueR[2]);
+          this.role = cookieValueR[2];
+        }
+        var cookieValueR = document.cookie.match(new RegExp('(^| )myrubyemail=([^;]+)'));
+        if(cookieValueR){
+          console.log(cookieValueR[2]);
+          this.email = cookieValueR[2];
+        }
+
+    this.today = new Date();
+    this.today = this.today.toISOString()
+    console.log(this.today);
     this.id = this.route.snapshot.params['theatreId'];
     console.log(this.id)
     const post_data = {
@@ -26,6 +47,13 @@ export class EventIndexComponent {
     this.eventService.getAllEvents(post_data).subscribe((data: Event[])=>{
       this.events = data;
       console.log(this.events)
+      this.past_events = this.events.filter(ev => {
+        return (ev.date < this.today && ev.email === this.email)
+      })
+      console.log(this.past_events)
+      this.upcoming_events = this.events.filter(ev => {
+        return ev.date >= this.today
+      })
     })
   }
 

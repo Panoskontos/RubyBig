@@ -53,6 +53,7 @@ export class LoginComponent implements OnInit{
         console.log(x)
         document.cookie = "myrubycookie="+ x.token
         document.cookie = "myrubyrole="+x.user.role
+        document.cookie = "myrubyemail="+x.user.email
         // Emitters.userEmitter.emit(x.user);
         this.router.navigate(['/'])
        })
@@ -80,6 +81,8 @@ export class LoginComponent implements OnInit{
       console.log(x)
       document.cookie = "myrubycookie="+ x.token
       document.cookie = "myrubyrole="+ x.user.role
+      document.cookie = "myrubyemail="+x.user.email
+
       // Emitters.userEmitter.emit(x.user);
       this.router.navigate(['/'])
      }, err=>{

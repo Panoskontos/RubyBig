@@ -6,5 +6,6 @@ export interface Event {
     seatsAvailable: number;
     seatsTotal: number;
     image:string;
+    email:string;
     date: Date;
 }

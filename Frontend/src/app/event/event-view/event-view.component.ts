@@ -12,7 +12,6 @@ export class EventViewComponent {
   ngOnInit(){
     // for role
     var cookieValueR = document.cookie.match(new RegExp('(^| )myrubyrole=([^;]+)'));
-    var role
     if(cookieValueR){
       console.log(cookieValueR[2]);
       this.role = cookieValueR[2];

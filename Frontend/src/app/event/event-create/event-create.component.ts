@@ -12,6 +12,7 @@ export class EventCreateComponent implements OnInit {
      
   form!: FormGroup;
   id!: number;
+  email!: string;
 
   constructor(
     public eventService: EventService,
@@ -30,21 +31,19 @@ export class EventCreateComponent implements OnInit {
     });
   }
      
-  /**
-   * Write code on Method
-   *
-   * @return response()
-   */
+
   get f(){
     return this.form.controls;
   }
      
-  /**
-   * Write code on Method
-   *
-   * @return response()
-   */
+
   submit(){
+    var cookieValueR = document.cookie.match(new RegExp('(^| )myrubyemail=([^;]+)'));
+    if(cookieValueR){
+      console.log(cookieValueR[2]);
+      this.email = cookieValueR[2];
+    }
+    this.form.value['email']= this.email
     this.form.value['theatre_id']= this.id
     console.log(this.form.value);
     this.eventService.create(this.form.value).subscribe((res:any) => {

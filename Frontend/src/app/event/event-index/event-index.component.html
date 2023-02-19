@@ -1,10 +1,48 @@
 <br>
-<br>
 <div class="container">
     <h1>Theatre Events</h1>
     <br>
     <br>
+    <div *ngIf="role === 'admin'"  >
      
+      <div *ngIf="past_events.length" >
+    <h3>Your Expired Events</h3>
+    <table   class="table table-bordered">
+      <tr>
+        <th width="200px">Logo</th>
+        <!-- <th>ID</th> -->
+        <th>Name</th>
+        <th>Date</th>
+        <th>Price</th>
+        <th>Sold</th>
+        <th width="220px">Action</th>
+      </tr>
+      <tr *ngFor="let event of past_events">
+        <td>
+          <div>
+            <img src={{event.image}} class="img-fluid img-thumbnail rounded" />
+          </div> 
+        </td>    
+        <!-- <td>{{ event.id }}</td> -->
+        <td>{{ event.name }}</td>    
+        <td>{{ event.date | date:'medium' }}</td>    
+        <td>{{ event.price }} €</td>    
+        <td>{{ (1-event.seatsAvailable /  event.seatsTotal)*100 | number: '2.0-2' }}% </td>    
+
+
+        <td>
+          <a *ngIf="email === event.email"  href="#" [routerLink]="['/tickets/', event.id]" class="btn btn-info">View Tickets</a>
+      
+
+        </td>
+      </tr>
+    </table>
+  </div>
+
+  </div>
+
+
+    <h3>Upcoming Events</h3>
     <table class="table table-bordered">
       <tr>
         <th width="200px">Logo</th>
@@ -15,8 +53,12 @@
         <th>Availability</th>
         <th width="220px">Action</th>
       </tr>
-      <tr *ngFor="let event of events">
-        <td><img src={{event.image}}  height="200px"  /></td>    
+      <tr *ngFor="let event of upcoming_events">
+        <td>
+          <div>
+            <img src={{event.image}} class="img-fluid img-thumbnail rounded" />
+          </div> 
+        </td>    
         <!-- <td>{{ event.id }}</td> -->
         <td>{{ event.name }}</td>    
         <td>{{ event.date | date:'medium' }}</td>    
@@ -26,6 +68,8 @@
 
         <td>
           <a href="#" [routerLink]="['/event/', event.id, 'view']" class="btn btn-info">Buy Ticket</a>
+
+          <a *ngIf="email === event.email"   href="#" [routerLink]="['/tickets/', event.id]" class="btn btn-info">View Tickets</a>
       
 
         </td>
@@ -35,6 +79,6 @@
     <br/>
     <a href="#" routerLink="" class="btn btn-primary">Back</a>
 
-    <button  href="#" [routerLink]="['/newEvent/', id]"  type="button" class=" mx-2 btn btn-primary">Add new Event</button>
+    <button  *ngIf="role === 'admin'"  href="#" [routerLink]="['/newEvent/', id]"  type="button" class=" mx-2 btn btn-primary">Add new Event</button>
 
  </div>

@@ -17,6 +17,7 @@ const routes: Routes = [
   {path:"logout", component:LogoutComponent},
   { path: 'theatre/:theatreId/view', component: ViewComponent },
   { path: 'event/:eventId/view', component: EventViewComponent },
+  {path: 'tickets/:eventId', component:TicketIndexComponent},
   { path: 'ticket/:ticketId/view', component: TicketViewComponent },
   { path: 'newEvent/:theatreId', component: EventCreateComponent },
 

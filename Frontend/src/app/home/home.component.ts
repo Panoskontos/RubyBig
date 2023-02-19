@@ -28,7 +28,7 @@ export class HomeComponent implements OnInit{
     var role
     if(cookieValueR){
       console.log(cookieValueR[2]);
-      role = cookieValueR[2]
+      role = cookieValueR[2];
     }
 
 if (cookieValue) {
