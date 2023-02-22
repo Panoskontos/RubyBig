@@ -38,7 +38,7 @@ export class TicketCreateComponent implements OnInit {
       fname: new FormControl('', [Validators.required]),
       lname: new FormControl('', [Validators.required]),
       email: new FormControl('', Validators.required),
-      ntickets: new FormControl('')
+      // ntickets: new FormControl('')
       
     });
   }
@@ -66,14 +66,14 @@ export class TicketCreateComponent implements OnInit {
       "email": this.form.value.email
     }
 
-    for (let i = 0; i < this.form.value.ntickets; i++) {
+    // for (let i = 0; i < this.form.value.ntickets; i++) {
       console.log(payload)
       this.ticketService.create(payload).subscribe((res:any) => {
            console.log(res)
            console.log('Ticket created successfully!');
+           this.router.navigateByUrl('');
           })
         }
-        this.router.navigateByUrl('');
 
-  }
+  // }
 }

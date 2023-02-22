@@ -34,6 +34,9 @@ class TicketsController < ApplicationController
     @ticket = Ticket.new(ticket_params)
     @event = Event.find(id=@ticket.event_id)    
     puts @event
+    if @event.seatsAvailable - 1 < 0
+      return render json: { msg: "Can't create more tickets availability is full" } 
+    end
     @event.seatsAvailable =  @event.seatsAvailable - 1
     @event.save()
 
@@ -43,7 +46,7 @@ class TicketsController < ApplicationController
       # @last_of_previous = @previous_tickets.last
       @ticket.seat = @previous_tickets.seat + 1
     else 
-      @ticket.seat = 0
+      @ticket.seat = 1
     end
 
     @ticket.code = rand(10000...100000)
