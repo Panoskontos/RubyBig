@@ -39,6 +39,7 @@ class TicketsController < ApplicationController
     end
     @event.seatsAvailable =  @event.seatsAvailable - 1
     @event.save()
+ 
 
     if Ticket.exists?(event_id: @ticket.event_id)
       @previous_tickets = Ticket.where(event_id: @ticket.event_id).last

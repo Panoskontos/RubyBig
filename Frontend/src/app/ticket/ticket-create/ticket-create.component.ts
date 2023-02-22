@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { FormGroup, FormControl, Validators} from '@angular/forms';
 import { TicketService } from '../ticket.service';   
 
+
 @Component({
   selector: 'app-ticket-create',
   templateUrl: './ticket-create.component.html',
@@ -24,7 +25,8 @@ export class TicketCreateComponent implements OnInit {
     private router: Router,
     private route: ActivatedRoute,
 
-  ) { }
+  ) { 
+  }
      
   /**
    * Write code on Method
@@ -33,6 +35,8 @@ export class TicketCreateComponent implements OnInit {
    */
   ngOnInit(): void {
     this.id = this.route.snapshot.params['eventId'];
+
+
 
     this.form = new FormGroup({
       fname: new FormControl('', [Validators.required]),
