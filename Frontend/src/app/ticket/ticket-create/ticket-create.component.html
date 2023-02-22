@@ -48,11 +48,17 @@
                 type="number"
                 class="form-control">
         </div> -->
-    
+        <br>
+        <div>Choose a seat</div>
         <br/>
+        <app-ticket-chart-layout></app-ticket-chart-layout>
+        <br/>
+
         <button class="btn btn-primary" type="submit" [disabled]="!form.valid">Book Ticket</button>
      
     </form>
+
+
     <br/>
     <a href="#" routerLink="" class="btn btn-primary">Back</a>
 

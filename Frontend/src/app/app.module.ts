@@ -26,6 +26,7 @@ import { TicketViewComponent } from './ticket/ticket-view/ticket-view.component'
 import { ModeComponent } from './mode/mode.component';
 import { EventCreateComponent } from './event/event-create/event-create.component';
 import { CreateTheatreComponent } from './theatre/create-theatre/create-theatre.component';
+import { TicketChartLayoutComponent } from './ticket/ticket-chart-layout/ticket-chart-layout.component';
 
 
 @NgModule({
@@ -46,6 +47,7 @@ import { CreateTheatreComponent } from './theatre/create-theatre/create-theatre.
     ModeComponent,
     EventCreateComponent,
     CreateTheatreComponent,
+    TicketChartLayoutComponent,
   ],
   imports: [
     BrowserModule,
