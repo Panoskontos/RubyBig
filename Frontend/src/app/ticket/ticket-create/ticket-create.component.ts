@@ -70,7 +70,6 @@ export class TicketCreateComponent implements OnInit {
       "email": this.form.value.email
     }
 
-    // for (let i = 0; i < this.form.value.ntickets; i++) {
       console.log(payload)
       this.ticketService.create(payload).subscribe((res:any) => {
            console.log(res)
@@ -79,5 +78,4 @@ export class TicketCreateComponent implements OnInit {
           })
         }
 
-  // }
 }
